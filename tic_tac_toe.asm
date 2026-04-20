@@ -13,7 +13,6 @@ RESULT_DRAW = 3
 
 .data
 board BYTE 9 DUP(0)
-turnCounter BYTE 0
 
 introMsg BYTE "Tic Tac Toe (You = X, AI = O)", 0
 promptMsg BYTE "Enter your move (1-9): ", 0
@@ -23,8 +22,6 @@ aiWinMsg BYTE "AI wins!", 0
 drawMsg BYTE "It's a draw!", 0
 lineMsg BYTE "-------------", 0
 sepMsg BYTE "|", 0
-spaceMsg BYTE " ", 0
-newlineMsg BYTE 0Dh, 0Ah, 0
 
 xSymbol BYTE "X", 0
 oSymbol BYTE "O", 0
@@ -276,14 +273,12 @@ gameStart:
     call DisplayBoard
 
     call GetUserMove
-    inc turnCounter
 
     call CheckWin
     cmp eax, RESULT_CONTINUE
     jne gameOver
 
     call AIMove
-    inc turnCounter
 
     call CheckWin
     cmp eax, RESULT_CONTINUE
