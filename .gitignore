@@ -1,0 +1,19 @@
+# MASM and linker outputs
+*.obj
+*.exe
+*.ilk
+*.pdb
+*.lib
+*.exp
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Visual Studio artifacts
+.vs/
+*.user
+*.suo
+Debug/
+Release/
+x64/
